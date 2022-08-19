@@ -26,8 +26,13 @@ int main(int argc, char **argv) {
         accept_topology += sim.metropolis_topology();
         accept_times += sim.metropolis_times(sd_merger_times);
         accept_mutation += sim.metropolis_mutation_rate(sd_mutation_rate);
-        std::cout << 2 * sim.mutation_rate << " " << sim.tree_height() << " "
-                  << std::endl;
+        // std::cout << 2 * sim.mutation_rate << " " << sim.tree_height() << " "
+        //           << std::endl;
+        for (int j = 0; j < 2 * sim.sample_size - 1; j++)  {
+            std::cout << sim.parent[j] << " ";
+        }
+        std::cout << sim.event_to_parent[0];
+        std::cout << std::endl;
     }
     std::cerr << "acceptance probabilities:" << std::endl;
     std::cerr << "mutation rate:\t" << (double)accept_mutation / run_length
