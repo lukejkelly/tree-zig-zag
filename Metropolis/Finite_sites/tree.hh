@@ -99,7 +99,7 @@ struct Sim {
     }
 
     void generate_data() {
-        gsl_spmatrix *tmp = gsl_spmatrix_alloc(1, nsites);
+        gsl_spmatrix *tmp = gsl_spmatrix_alloc(1, 1);
         for (int i = 0; i < nsites; i++) {
             gsl_spmatrix_set(tmp, 0, i, gsl_rng_uniform_int(gen, 2));
         }
